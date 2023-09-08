@@ -125,7 +125,7 @@ const Home = () => {
 
         <div>
 
-            <body className="bg-[#ece7e1] h-screen w-screen md:flex relative md:static">
+            <div className="bg-[#ece7e1] h-screen w-screen md:flex relative md:static">
 
             <section className="md:w-[50%] xl:w-[65%]">
 
@@ -185,7 +185,7 @@ const Home = () => {
             </section>
 
                 
-            </body>
+            </div>
 
 
 
