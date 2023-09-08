@@ -13,4 +13,23 @@
     }
   }
 
+
+  .typing-circle {
+    width: 22px;
+    height: 22px;
+    background-color: #eb5555;
+    border-radius: 50%;
+    display: inline-block;
+    animation: blink 1s infinite alternate;
+    margin-left: 5px;
+  }
+  
+  @keyframes blink {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
  

@@ -2,6 +2,16 @@ import React, { useState, useEffect } from 'react';
 import '../Assets/CSS/Style.css';
 import Logo from '../Assets/images/logo.svg'
 
+
+
+const firstText = [
+    "GadgetPLUG",
+    "Always Available for you",
+    "Anywhere you go"
+]
+
+
+
 const texts = [
     "We are here for you . . ." ,
     "You can get your Phones here . . .",
@@ -24,11 +34,55 @@ const texts = [
   ];
 
 
+
 const Home = () => {
 
     const [textIndex, setTextIndex] = useState(0);
     const [typingText, setTypingText] = useState('');
     const [isTyping, setIsTyping] = useState(true);
+
+    const [firstTextIndex, setfirstTextIndex] = useState(0);
+    const [firstTypingText, setfirstTypingText] = useState('');
+    const [firstIsTyping, setfirstIsTyping] = useState(true);
+
+
+    useEffect(() => {
+      const firstCurrentText = firstText[firstTextIndex].split(" ");
+      let firstCurrentWordIndex = 0;
+      let firstCurrentWord = "";
+    
+      const typingInterval = setInterval(() => {
+        if (isTyping) {
+          if (firstCurrentWordIndex < firstCurrentText.length) {
+            firstCurrentWord += firstCurrentText[firstCurrentWordIndex] + " ";
+            setfirstTypingText(firstCurrentWord);
+            firstCurrentWordIndex++;
+          } else {
+            setfirstIsTyping(false);
+            setTimeout(() => {
+              setfirstIsTyping(true);
+              firstCurrentWordIndex = 0;
+              firstCurrentWord = "";
+              setfirstTextIndex((prevIndex) => (prevIndex + 1) % firstText.length);
+            }, 40000);
+          }
+        } else {
+          if (firstCurrentWord === "") {
+            setTimeout(() => {
+              setfirstTypingText("");
+            }, 5000);
+          } else {
+            firstCurrentWord = firstCurrentWord.slice(0, -1);
+            setfirstTypingText(firstCurrentWord);
+          }
+        }
+      }, 3000);
+    
+      return () => clearInterval(typingInterval);
+    }, [firstTextIndex, firstIsTyping]);
+
+    
+
 
     useEffect(() => {
         const currentText = texts[textIndex].split(" ");
@@ -81,7 +135,13 @@ const Home = () => {
                     <span className="text-[20px] font-[600] font-['Lily_Script_One'] text-[#FF7576] ">PLug</span>
                 </h1>
 
-                <div className={`text-[35px] xl:text-[50px] font-[700] font-['Lily_Script_One'] text-[#FF7576] mt-[150px] md:mt-[300px] xl:mt-[350px] 2xl:mt-[300px] px-[20px] ${isTyping ? 'typing-animation' : ''}`}>{typingText}
+                <div className={`text-[35px] xl:text-[50px] font-[700] font-['Lily_Script_One'] text-[#FF7576] mt-[150px] md:mt-[300px] xl:mt-[350px] 2xl:mt-[300px] px-[20px] ${isTyping ? 'typing-animation' : ''}`}>
+                  {firstTypingText}
+                  <div>
+                  {typingText} 
+                  {isTyping && <div className="typing-circle">
+                  </div>}
+                  </div>
 
                 </div>
 
