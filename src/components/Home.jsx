@@ -127,7 +127,7 @@ const Home = () => {
 
             <div className="bg-[#ece7e1] h-screen w-screen md:flex relative md:static">
 
-            <section className="md:w-[50%] xl:w-[65%]">
+            <section className="md:w-[50%] xl:w-[55%]">
 
                 <h1 className="py-[20px] px-[20px]">
                     <span className="text-[20px] font-[600] font-['Lily_Script_One'] text-[#FF7576]">YOUR</span> 
@@ -147,7 +147,7 @@ const Home = () => {
 
             </section>
 
-            <section className="bg-[#171415] rounded-tl-[20px] rounded-tr-[20px] fixed bottom-0 md:static w-screen md:rounded-none text-white md:w-[50%] xl:w-[35%%] md:flex md:flex-col md:justify-end md:gap-[200px] xl:gap-[380px] 2xl:gap-[290px] pb-0">
+            <section className="bg-[#171415] rounded-tl-[20px] rounded-tr-[20px] fixed bottom-0 md:static w-screen md:rounded-none text-white md:w-[50%] xl:w-[45%] md:flex md:flex-col md:justify-end md:gap-[200px] xl:gap-[380px] 2xl:gap-[290px] pb-0">
 
 
                 <div>
